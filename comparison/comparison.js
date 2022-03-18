@@ -12,3 +12,13 @@ console.log(firstName.length !== lastName.length);
 console.log(math>bangla);
 console.log(math<bangla);
 console.log(math!=bangla);
+
+var odd = 1;
+
+for (let i = 1; i < 10; i+= 2) {
+    if(i !== 9){
+        console.log('Hey !');
+    }else {
+        console.log('Hello !');
+    }
+}
