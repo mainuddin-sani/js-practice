@@ -47,3 +47,14 @@ console.log(bdPlayer);
 
 
 
+
+// 
+
+var favoriteBook = 'Amar sonar bangla';
+
+var bookList = ['Math', 'javascript language', 'pyton', 'amar sonar bangla', 'history'];
+var indexNumber =  bookList.indexOf('Math');
+console.log(indexNumber);
+var nameCange = bookList[2];
+bookList[2] = 'main';
+console.log(bookList);
