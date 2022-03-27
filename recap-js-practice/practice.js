@@ -146,3 +146,35 @@ console.log(userTotalInterest);
 
 
  
+//  start array 
+
+const names = ['sani', 'mani', 'kadi','nani', 'style', 'sani', 'khadi', 'earn'];
+
+function duplicateNames(names){
+    var uniqe = [];
+    for (const element of names) {
+        if(uniqe.indexOf(element) == -1){
+            uniqe.push(element);
+        }
+    }
+    return uniqe;
+}
+
+var duplicatenamesArray = duplicateNames(names);
+console.log(duplicatenamesArray);
+
+
+const numberHeads = [1,3,5,3,7,8,];
+function duplicatNumer(num){
+    var numbers = [];
+    for(const element of numberHeads){
+        if (numbers.indexOf(element) == -1) {
+            numbers.push(element);
+        }
+        console.log(element);
+    }
+    return numbers;
+}
+
+var uniqeNumbers = duplicatNumer(numberHeads);
+console.log(uniqeNumbers);
