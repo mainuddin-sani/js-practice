@@ -2,7 +2,7 @@
 
 function anaToVori(ana){
     let goldVori;
-    if(typeof ana != "string"){
+    if(typeof ana != "string" && typeof ana != "object"){
         goldVori = ana / 16;
     }else {
         return 'please your input wrong!';
@@ -18,12 +18,19 @@ function pandaCost(singara, somocha, jilapi){
     let perSingara = 7;
     let perSomocha = 10;
     let perJilapi = 15;
-
+    if (typeof singara == "string" && typeof somocha == "string" && typeof jilapi == "string") {
+        return 'please enter your right input';
+    } else if(typeof singara == "object" && typeof somocha == "object" && typeof jilapi == "object"){
+        return 'please enter your right input';
+    }
+   else {
     let totalPandaCost = (singara * perSingara) + (somocha * perSomocha) + (jilapi * perJilapi);
     return totalPandaCost;
+    }
+    
 }
 
-const totalPrice = pandaCost(2,2,2);
+const totalPrice = pandaCost(2,2,'2');
 
 // problem 3
 
@@ -31,39 +38,37 @@ function picnicBuget(pepole){
     let perOneHundred = 5000;
     let perTwoHundred = 4000;
     let perTwoHundredOver = 3000;
-    if(pepole <= 100 && typeof pepole != "string"){
+    if (typeof pepole == "string") {
+        return 'please enter your right input';
+    }
+    if (typeof pepole == "object") {
+        return 'please enter your right input';
+    }
+    if(pepole <= 100){
         let moreThenOneHundred = pepole * perOneHundred;
         return moreThenOneHundred;
-    }else if(pepole <= 200 &&  typeof pepole != "string"){
+    }else if(pepole <= 200){
         let moreThenTwoHundred = pepole * perTwoHundred;
         return moreThenTwoHundred;
-    } else if(pepole &&  typeof pepole != "string"){
+    } else{
         let moreThenthreeHundred = pepole * perTwoHundredOver;
         return moreThenthreeHundred;
     }
-    else {
-        return 'please enter your right input';
-    }
 }
 
-const totalPicinicCost = picnicBuget('201');
-
+const totalPicinicCost = picnicBuget(201);
 // problem 4
 
 
-function oddFriend(names){
-    let oddCharacter = [];
-    for (let i = 0; i < names.length; i++) {
-        let element = names[i].length;
-        if (element % 2 == 1) {
-            console.log(element);
-            if (element > oddCharacter) {
-                oddCharacter = element;
-            }
+const friendsName = ['sani', 'manik','ali', 'rahimur']; //friends name array
+
+function oddFriend(friendsName){
+    let friendsNames = friendsName[0];
+    for(let name of friendsName){
+        if (name.length % 2 == 1 && friendsNames.length > name.length) {
+            return name;
         }
     }
-    return oddCharacter;
-}
 
-const oddFriendName = oddFriend(['sani', 'maniw','mashuer']);
-console.log(oddFriendName);
+}
+const smallName = oddFriend(friendsName);
