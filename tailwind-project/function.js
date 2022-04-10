@@ -6,9 +6,14 @@ function getInputValue(inputvalue){
     console.log(inputValueText);
     inputValue.value = " "
     return inputValueText;
-    
 }
-
+function getinputalance(inputvalue){
+    const inputValue = document.getElementById(inputvalue);
+    const inputValueText = parseFloat(inputValue.innerText);
+    console.log(inputValueText);
+    inputValue.value = " "
+    return inputValueText;
+}
 // update value
 
 function valueUpdate(updateValue, amount){
@@ -18,6 +23,8 @@ function valueUpdate(updateValue, amount){
     const newUpdateValue = previusTotal + amount;
     upateValue.innerText = newUpdateValue;
 }
+
+
 
 function updateBalance(amount, isAdding){
     const balance = document.getElementById('balance');
@@ -35,12 +42,18 @@ function updateBalance(amount, isAdding){
 
 document.getElementById('deposit-button').addEventListener('click', function(){
     const amount = getInputValue('deposit-amount');
-    valueUpdate('deposit-balance', amount);
-    updateBalance(amount, true);
+    if (amount > 0) {
+        valueUpdate('deposit-balance', amount);
+        updateBalance(amount, true);
+    }
 })
 
 document.getElementById('withdraw-button').addEventListener('click', function(){
     const amount = getInputValue('withdraw-amount');
-    valueUpdate('withdraw-balance', amount);
-    updateBalance(amount, false);
+    const withdraw = getinputalance('balance');
+    if (amount > 0 && amount <= withdraw) {
+        valueUpdate('withdraw-balance', amount);
+        updateBalance(amount, false);
+    }
+   
 });
